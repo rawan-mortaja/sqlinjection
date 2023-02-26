@@ -14,7 +14,7 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $pass);
 
 // die($email);
 //     if ($user->rowCount()) {
-//         die($email);
+//         die('LOGIN!');
 //     }
 // }
 
@@ -29,7 +29,7 @@ if (isset($_POST['email'])) {
     ]);
 
     if ($user->rowCount()) {
-        die($email);
+        die('LOGIN!');
     }
 }
 
@@ -48,8 +48,12 @@ if (isset($_POST['email'])) {
         <label for="email">
             Email address
             <input type="text" name="email" id="email">
-        </label>
-        <input type="submit" value="Search">
+        </label><br><br>
+        <label for="password">
+            Password
+            <input type="password" name="password" id="password">
+        </label><br><br>
+        <input type="submit" value="LogIn">
     </form>
 </body>
 
