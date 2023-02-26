@@ -7,13 +7,28 @@ $pass = "";
 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $pass);
 
 
-if(isset($_POST['email'])){
+// if (isset($_POST['email'])) {
+//     $email = $_POST['email'];
+
+//     $user = $conn->query("SELECT * FROM users WHERE email = '$email'");
+
+// die($email);
+//     if ($user->rowCount()) {
+//         die($email);
+//     }
+// }
+
+
+if (isset($_POST['email'])) {
     $email = $_POST['email'];
 
-    $user = $conn->query("SELECT * FROM users WHERE email = '$email'");
+    $user = $conn->prepare("SELECT * FROM users WHERE email = :email ");
+    $user->execute([
+        'email' => $email,
+    ]);
 
-    if( $user-> rowCount()){
-        
+    if ($user->rowCount()) {
+        die($email);
     }
 }
 
