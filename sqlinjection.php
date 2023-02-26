@@ -6,7 +6,7 @@ $pass = "";
 
 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $pass);
 
-
+// SQL INJECTION 
 // if (isset($_POST['email'])) {
 //     $email = $_POST['email'];
 
@@ -19,6 +19,7 @@ $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $pass);
 // }
 
 
+// SOLVE SQL INJECTION
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
 
