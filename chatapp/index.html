@@ -7,6 +7,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
 
+        $(document).ready(function () {
+
+            //function get
+
+            function getdata() {
+                $.ajax({
+                    url: "getdata.php",
+                    type: "POST",
+                    success: function (respose) {
+                        $('#chatbox').html(respose);
+                    }
+                });
+
+                $('#chatbox').animate({ scrollTop: "400" }, 1000);
+            }
+
+
+
+
+
+
+            //function set
+            $('#sendbtn').click(function (e) {
+                e.preventDefault();
+                var name = $('#nickname').val();
+                var msg = $('#msg').val();
+
+                $.ajax({
+                    url: "sendata.php",
+                    type: "POST",
+                    data: { n: name, m: msg }
+                });
+
+                $('#msg').val("");
+                getdata();
+            });
+
+
+
+            setInterval(function () {
+                getdata();
+            }, 1500);
+
+
+        });
     </script>
 </head>
 
@@ -15,8 +60,13 @@
 
     <div id="chatbox">
 
-
     </div>
+    <form action="">
+        <input type="text" name="nickname" id="nickname" placeholder="Enter Your Nickname">
+        <input type="text" name="message" id="msg" placeholder="Enter Your Message">
+        <input type="submit" name="submit" id="sendbtn" value="Send">
+    </form>
+
 </body>
 
 </html>
