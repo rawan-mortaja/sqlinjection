@@ -1,5 +1,6 @@
-#chatbox{
+#chatbox {
     width: 600px;
     height: 400px;
-   background: #ececec;
+    background: #ececec;
+    margin: 0 auto;
 }
