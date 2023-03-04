@@ -1,32 +1,40 @@
 <?php
-include 'db.php';
+$host = "localhost";
+$dbname = "web_security";
+$username = "root";
+$pass = "";
+
+$conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $pass);
 
 // SQL INJECTION 
-// if (isset($_POST['email'])) {
-//     $email = $_POST['email'];
 
-//     $user = $conn->query("SELECT * FROM users WHERE email = '$email'");
-
-// die($email);
-//     if ($user->rowCount()) {
-//         die('LOGIN!');
-//     }
-// }
-
-
-// SOLVE SQL INJECTION
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
 
-    $user = $conn->prepare("SELECT * FROM users WHERE email = :email ");
-    $user->execute([
-        'email' => $email,
-    ]);
+    $user = $conn->query("SELECT * FROM users WHERE email = '$email'");
 
+    die($email);
     if ($user->rowCount()) {
         die('LOGIN!');
     }
 }
+
+
+// SOLVE SQL INJECTION
+
+
+// if (isset($_POST['email'])) {
+//     $email = $_POST['email'];
+
+//     $user = $conn->prepare("SELECT * FROM users WHERE email = :email ");
+//     $user->execute([
+//         'email' => $email,
+//     ]);
+
+//     if ($user->rowCount()) {
+//         die('LOGIN!');
+//     }
+// }
 
 ?>
 
