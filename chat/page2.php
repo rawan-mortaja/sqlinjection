@@ -2,7 +2,7 @@
 
 include "db.php";
 
-
+$input = $_POST['input'];
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
