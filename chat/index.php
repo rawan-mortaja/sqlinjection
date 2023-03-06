@@ -19,7 +19,7 @@
         <input type="submit" value="Send" /> <br /> <br />
     </form>
     <div id="chatbox">
-        <iframe src="Page1.php" width="450" height="200" scrolling="yes">
+        <iframe src="Page1.php" width="550" height="1000" scrolling="yes">
         </iframe>
     </div>
 </body>
