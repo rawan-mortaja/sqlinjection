@@ -1,0 +1,31 @@
+#chatbox {
+    width: 600px;
+    height: 400px;
+    background: #ececec;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+input[type='text'] {
+    display: block;
+    margin: 10px auto;
+    width: 600px;
+    height: 30px;
+}
+
+
+input[type='submit'] {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    height: 30px;
+    background-color: forestgreen;
+    border: 1px solid forestgreen;
+    color: #ececec;
+    font-size: 18px;
+}
+
+input[type='submit']:hover {
+    background-color: transparent;
+    color: forestgreen;
+}
