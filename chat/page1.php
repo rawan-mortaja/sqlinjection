@@ -19,7 +19,8 @@
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             //echo $_SESSION['username'];
-            echo "" . $row["msg"] . "<br><br>";
+            // echo "" .$row["msg"] . "<br><br>";
+            echo "" . htmlentities($row["msg"]) . "<br><br>";
         }
     } else {
         echo "no messages have been exchanged yet";
